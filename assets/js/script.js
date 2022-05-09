@@ -10,11 +10,13 @@
         document.querySelector('#tails'),
         document.querySelector('#tails-percent')
     ];
-    scoreBoards(scoreBoard);
+    let scoreBoard = {}
+    scoreBoards();
     function handleFlipButton()
     {
         const headsOrTails = Math.random() < 0.5;
         scoreBoard.totalFlips += 1;
+        //scoreBoards(scoreBoard.totalFlips) += 1;
         if(headsOrTails)
         {
             scoreBoard.heads += 1;
@@ -35,7 +37,7 @@
     }
     function handleClearButton()
     {
-        querySelectorArr
+            scoreBoards();
     }
     function setUpEventListeners()
     {
@@ -51,9 +53,9 @@
         setUpEventListeners();
     }
     init();
-    function scoreBoards(scoreBoard)
+    function scoreBoards()
     {
-        let scoreBoard = {
+        scoreBoard = {
             heads: 0,
             percentageHeads: 0,
             tails: 0,
