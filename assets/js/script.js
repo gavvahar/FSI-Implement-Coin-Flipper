@@ -16,7 +16,6 @@
     {
         const headsOrTails = Math.random() < 0.5;
         scoreBoard.totalFlips += 1;
-        //scoreBoards(scoreBoard.totalFlips) += 1;
         if(headsOrTails)
         {
             scoreBoard.heads += 1;
@@ -30,14 +29,13 @@
         }
         scoreBoard.percentageHeads = (scoreBoard.heads / scoreBoard.totalFlips) * 100;
         scoreBoard.percentageTails = (scoreBoard.tails / scoreBoard.totalFlips) * 100;
-        querySelectorArr[4].textContent = `${scoreBoard.heads}`;
-        querySelectorArr[5].textContent = `${Math.round(scoreBoard.percentageHeads)}%`;
-        querySelectorArr[6].textContent = `${scoreBoard.tails}`;
-        querySelectorArr[7].textContent = `${Math.round(scoreBoard.percentageTails)}%`;
+        displayScoreBoard();
     }
     function handleClearButton()
     {
-            scoreBoards();
+        scoreBoards();
+        displayScoreBoard();
+        querySelectorArr[3].textContent = `Let's Get Rolling!`;
     }
     function setUpEventListeners()
     {
@@ -62,6 +60,12 @@
             percentageTails: 0,
             totalFlips: 0,
         }
-        //return scoreBoard;
+    }
+    function displayScoreBoard()
+    {
+        querySelectorArr[4].textContent = `${scoreBoard.heads}`;
+        querySelectorArr[5].textContent = `${Math.round(scoreBoard.percentageHeads)}%`;
+        querySelectorArr[6].textContent = `${scoreBoard.tails}`;
+        querySelectorArr[7].textContent = `${Math.round(scoreBoard.percentageTails)}%`;
     }
 })();
